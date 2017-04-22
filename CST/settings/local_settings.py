@@ -10,7 +10,6 @@ import logging
 
 import db_config 
 from base_settings import *
-from settings.keys import keys
 
 
 ENVIRON = ENV_LOCAL
@@ -79,18 +78,3 @@ if len(sys.argv) > 1 and sys.argv[1] == 'test':
     logging.disable(logging.WARNING)
 
 RUNNING_TESTS = True
-
-
-######################################################################################
-## social Media IDS ##
-######################################################################################
-
-# Instagram
-INSTAGRAM_CLIENT_ID = keys.INSTAGRAM_CLIENT_ID_LOCAL
-INSTAGRAM_CLIENT_SECRET = keys.INSTAGRAM_CLIENT_SECRET_LOCAL
-
-# Facebook
-FACEBOOK_CLIENT_ID = keys.FACEBOOK_CLIENT_ID_LOCAL
-FACEBOOK_CLIENT_SECRET = keys.FACEBOOK_CLIENT_SECRET_LOCAL
-
-######################################################################################

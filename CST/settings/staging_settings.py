@@ -10,7 +10,6 @@ Here we inherit from base settings and just override staging specific items.
 import db_config 
 
 from base_settings import *
-from settings.keys import keys
 
 
 ENVIRON = ENV_STAGING
@@ -56,18 +55,3 @@ CORS_ALLOW_METHODS = (
     'DELETE',
 )
 #--------------- / end / -----------------
-
-
-######################################################################################
-## social Media IDS ##
-######################################################################################
-
-# Instagram
-INSTAGRAM_CLIENT_ID = keys.INSTAGRAM_CLIENT_ID_STAGING
-INSTAGRAM_CLIENT_SECRET = keys.INSTAGRAM_CLIENT_SECRET_STAGING
-
-# Facebook
-FACEBOOK_CLIENT_ID = keys.FACEBOOK_CLIENT_ID_STAGING
-FACEBOOK_CLIENT_SECRET = keys.FACEBOOK_CLIENT_SECRET_STAGING
-
-######################################################################################

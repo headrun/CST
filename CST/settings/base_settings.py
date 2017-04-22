@@ -211,6 +211,8 @@ OVERRIDE_APPS = [
 ]
 
 DJANGO_APPPS = [
+    'jet.dashboard',
+    'jet',
     'django.contrib.admin.apps.SimpleAdminConfig',
     'django.contrib.admindocs',
     'django.contrib.auth',
@@ -235,9 +237,9 @@ THIRD_PARTY_APPS = [
     'djcelery',
     'djcelery_email',
     'djsupervisor',
-    # 'djrill',
+    'djrill',
     'kombu',
-    #'longerusername',
+    'longerusername',
     'tastypie',
 ]
 

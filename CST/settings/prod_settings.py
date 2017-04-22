@@ -11,7 +11,6 @@ Here we inherit from dev settings and just override prod specific items.
 import db_config 
 
 from base_settings import *
-from settings.keys import keys
 
 
 ENVIRON = ENV_PROD
@@ -59,18 +58,3 @@ CORS_ALLOW_METHODS = (
     'DELETE',
 )
 #--------------- / end / -----------------
-
-
-######################################################################################
-## social Media IDS ##
-######################################################################################
-
-# Instagram
-INSTAGRAM_CLIENT_ID = keys.INSTAGRAM_CLIENT_ID_PROD
-INSTAGRAM_CLIENT_SECRET = keys.INSTAGRAM_CLIENT_SECRET_PROD
-
-# Facebook
-FACEBOOK_CLIENT_ID = keys.FACEBOOK_CLIENT_ID_PROD
-FACEBOOK_CLIENT_SECRET = keys.FACEBOOK_CLIENT_SECRET_PROD
-
-######################################################################################
