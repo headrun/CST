@@ -30,4 +30,10 @@ class CrawlersAdmin(admin.ModelAdmin):
     list_filter = (('user', admin.RelatedOnlyFieldListFilter), )
 
 
+class SummaryAdmin(admin.ModelAdmin):
+    list_display = ('crawler', 'start_time', 'end_time', )
+    list_filter = (('crawler', admin.RelatedOnlyFieldListFilter), )
+
+
 admin.site.register(models.Crawler, CrawlersAdmin)
+admin.site.register(models.Summary, SummaryAdmin)

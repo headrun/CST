@@ -1,0 +1,7 @@
+
+MIN_LENGTH_USERNAME = 4
+MIN_LENGTH_PASSOWRD = 6
+
+WEAK_PASSWORDS = [
+    'password'
+]

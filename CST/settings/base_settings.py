@@ -244,6 +244,7 @@ THIRD_PARTY_APPS = [
 ]
 
 CUSTOM_APPS = [
+    'accounts',
     'common_exceptions',
     'crawlers',
     'projects',

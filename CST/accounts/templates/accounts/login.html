@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>login</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+  <form id="login">
+    {% csrf_token %}    
+    username: <input type="text" name="username">
+    <br>
+    password: <input type="password" name="password">
+    <br>
+    <input type="submit" name="submit">
+  </form>
+  
+  <script type="text/javascript">
+    $(function() {
+      function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie != '') {
+          var cookies = document.cookie.split(';');
+          for (var i = 0; i < cookies.length; i++) {
+              var cookie = jQuery.trim(cookies[i]);
+              // Does this cookie string begin with the name we want?
+              if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      console.log(cookieValue);
+      return cookieValue;
+  }
+      $('#login').submit(function(e) {
+        $.ajax({
+            type: 'post',
+            url: '/api/v1/accounts/login/',
+            data: JSON.stringify({username:'r1',password:'r1'}),
+            headers: {
+              "X-CSRFToken": getCookie('csrftoken'), 
+              "X-Requested-With": "XMLHttpRequest"
+            },
+            dataType: 'json',
+            async: 'false',
+            success: function(data) {
+                console.log(data);
+            },
+            error: function(data) {
+                console.log('error', data);
+            }
+        });
+        e.preventDefault();
+      });
+    });
+  </script>
+</body>
+</html>
