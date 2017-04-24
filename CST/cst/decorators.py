@@ -8,11 +8,6 @@ from django.http import Http404
 from django_mobile import get_flavour
 from django_mobile.conf import settings as mobile_settings
 
-from auth.authorization import is_nutritionist
-from auth.authorization import is_trainer
-
-from infra.thread_local import thread_local
-
 
 def cache_tag(ttl=1200):
     """

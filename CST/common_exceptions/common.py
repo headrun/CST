@@ -84,4 +84,12 @@ class UserDoesNotExistError(CommonBaseException):
     error_code = 'userDoesNotExist'
 
     def __init__(self):
+
+        CommonBaseException.__init__(self, self.message, self.error_code)
+
+class UnAuthorizedUserError(CommonBaseException):
+    message = 'You are not allowed to do this operation(s)'
+    error_code = 'unAuthorizedUser'
+
+    def __init__(self):
         CommonBaseException.__init__(self, self.message, self.error_code)
