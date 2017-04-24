@@ -245,6 +245,8 @@ THIRD_PARTY_APPS = [
 
 CUSTOM_APPS = [
     'common_exceptions',
+    'crawlers',
+    'projects',
     'test_views',
 ]
 
