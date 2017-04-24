@@ -7,6 +7,7 @@ from django.utils import timezone
 
 from jsonfield import JSONField
 
+from crawlers import constants
 from projects import models as project_models
 
 
@@ -16,6 +17,7 @@ class Crawler(models.Model):
     name = models.CharField(max_length=255, null=False, blank=False)
     machine_ip = models.GenericIPAddressField(null=False, blank=False)
     machine_path = models.TextField(null=False, blank=False)
+    type = models.IntegerField(choices=constants.CRAWLER_TYPES, default=0, null=False, blank=False)
     is_active = models.BooleanField(default=True)
     deactivated_at = models.DateTimeField(null=True, blank=True)
     info = JSONField(default={}, blank=True)
@@ -39,15 +41,16 @@ class Crawler(models.Model):
         self.delete()
 
 
-# class Summary(models.Model):
-#     crawler = models.ForeignKey(Crawler, related_name='summary')
-#     info = JSONField(default={}, blank=True)
-#     created_at = models.DateTimeField(auto_now_add=True)
-#     updated_at = models.DateTimeField(auto_now=True)
+class Summary(models.Model):
+    crawler = models.ForeignKey(Crawler, related_name='summary')
+    start_time = models.DateTimeField(null=True, blank=True)
+    end_time = models.DateTimeField(null=True, blank=True)
+    info = JSONField(default={}, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
-#     class Meta:
-#         unique_together = (('client', 'name'), )
-#         index_together = (('client', 'name'), )
+    class Meta:
+        index_together = (('crawler', 'start_time', 'end_time'), )
 
-#     def __unicode__(self):
-#         return 'crawler: {}'.format(self.crawler.name)
+    def __unicode__(self):
+        return 'crawler: {}'.format(self.crawler.name)

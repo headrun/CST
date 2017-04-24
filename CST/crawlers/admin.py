@@ -26,7 +26,7 @@ class CrawlersAdmin(admin.ModelAdmin):
             return True
         return obj.user == request.user
 
-    list_display = ('user', 'project', 'name', 'is_active', 'deactivated_at', 'created_at', )
+    list_display = ('user', 'project', 'name', 'type', 'is_active', 'deactivated_at', 'created_at', )
     list_filter = (('user', admin.RelatedOnlyFieldListFilter), )
 
 
