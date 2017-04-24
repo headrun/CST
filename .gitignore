@@ -19,4 +19,6 @@ celerybeat-schedule
 cst/static
 *.zip
 */__MACOSX/*
+UI/node_modules/*
+UI/bower_components/*
 
